@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+.container{
+    max-width: 350px;
+    margin: 200px auto;
+    background-color: #3d79db;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#inp{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    width: 163px;
+    height: 31px;
+}
+#btn{
+    margin-top: 50px;
+    text-align: center;
+    height: 30px;
+    width: 50px;
+    background-color: blue;
+    color: white;
+}
+#btn:hover{
+    background-color: rgb(46, 68, 235) ;
+}
+#result{
+    margin-top: 10px;
+}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Palindrome Checker </h1>
+        <input type="text" id="inp" placeholder="Enter any value ">
+        <button id="btn">Check </button>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener("click", Palindrome);
+
+function Palindrome() {
+    let s = document.getElementById('inp').value;
+    const res = document.getElementById('result');
+    
+    if (isPalindrome(s)) {
+        res.innerHTML = `"${s}" is a palindrome`;
+    } else {
+        res.innerHTML = `"${s}" is not a palindrome`;
+    }
+}
+
+function isPalindrome(s) {
+    let st = 0;
+    let e = s.length - 1;
+    let validate = true;
+
+    while (st <= e) {
+        if (s[st] !== s[e]) {
+            validate = false;
+            break;
+        }
+        st++;
+        e--;
+    }
+
+    return validate;
+}
+    </script>
+</body>
+</html>
